@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow" />
+    <title>A vous le Web | Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition text-sm sidebar-mini layout-navbar-fixed layout-fixed">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-dark elevation-2 ">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="dashboard.php" class="nav-link">Home</a>
+                </li>
+
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i> API
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="deconnect" href="dashboard.php?module=deconnect">
+                        <i class="fas fa-power-off"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="dashboard.php" class="brand-link-block">
+
+                <img src="medias/logocg.png" alt="AdminLTE Logo" class=" elevation-3" style="width:100%">
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="info">
+                        <?php if(isset($bienvenue)){echo $bienvenue;} ?>
+                    </div>
+                </div>
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="dashboard.php?module=graphique_recapitulatif" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>Ranxplorer</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="dashboard.php?module=seobserver" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>Seobserver</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- dashboard.php?module=focus (lien de la page focus)-->
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Focus</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="dashboard.php?module=recherche" class="nav-link">
+                                <i class="fa fa-search"></i>
+                                <p>
+                                    Recherche
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Administration
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="dashboard.php?module=afficher_liste_site" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Liste des Sites</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="dashboard.php?module=comptes&action=afficher_comptes" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Comptes</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="dashboard.php?module=API&action=afficher_api" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>API</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">
+                                <?php if(isset($titre_bo)){echo ($titre_bo);} ?>
+                            </h1>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+                                <li class="breadcrumb-item active">
+                                    <?php if(isset($titre_bo)){echo ($titre_bo);} ?>
+                                </li>
+                            </ol>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <section class="content">
+                <?php if(isset($content)){include($content);}else{include ("pages/home.php") ;}?>
+
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.2.0-rc
+            </div>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+            <div class="card-flex">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fa fa-book"></i> Call API metrics</h3>
+                </div>
+                <div class="card-body">
+                    <div class="clearfix hidden-md-up"></div>
+
+                    <div class="">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Credit Ranxplorer</span>
+                                <span class="info-box-number"><?php echo $ranx_credit['metas']['remaining-credits'] ?></span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <div class="">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Credit Seobserver</span>
+                                <span class="info-box-number"><?php $keys= file_get_contents("https://api1.seobserver.com/api_users/subscription.json?api_key=5f22c9885f469a5e4d8b457a271bb050cdfd818cf8b7659051e067af8");
+                                          $seo_credit = json_decode($keys, true);
+                                          echo $seo_credit['data']['TotalUnits']; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-calendar-alt"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Date du dernier Appel API</span>
+                                <span class="info-box-number"><?php echo $resultat[7]?></span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <form method="POST" action="<?php if(isset($_POST['call_api'])){echo ranxplorer_seo(); echo seobserver();}?>">
+                        <input type="submit" name="call_api" class="btn btn-warning btn-lg" value=" Appel API"></input>
+                    </form>
+
+                </div>
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+</body>
+
+</html>
